@@ -72,6 +72,7 @@ Plugin không có quyền gì khác: không file, không hệ thống.
 ```
 
 - `url` = link phát trực tiếp (ưu tiên m3u8) cho ExoPlayer; `embed` = link nhúng dự phòng cho WebView.
+- `referer` (không bắt buộc, thêm 20/11/2026 cho Anime Hay): nếu CDN của nguồn bắt trình phát gửi kèm Referer mới chịu phát, đặt thêm trường `"referer": "https://..."` vào từng tập — app (từ bản hm.19) sẽ gửi Referer đó cho mọi yêu cầu của luồng phát. Nguồn nào không cần thì bỏ qua trường này.
 - Trường nào nguồn không có thì để chuỗi rỗng / 0 — app tự chịu phần hiển thị thiếu.
 
 ## 4. Kỷ luật viết plugin
