@@ -87,3 +87,5 @@ Plugin không có quyền gì khác: không file, không hệ thống.
 |---|---|---|
 | phimapi.js | phimapi.com (danh sách v1, chi tiết /phim/, tìm kiếm, 26 thể loại) | Đã gọi API thật 19/11/2026, đủ trường |
 | nguonc.js | phim.nguonc.com/api | Theo đúng cấu trúc bản HQH đã chạy trên máy thầy; từ máy chủ phân tích bị Cloudflare chặn (403) nên chờ kiểm lại trên máy khi app xong |
+| vsmov.js | vsmov.com/api (mới cập nhật 24/trang, phim bộ/lẻ 20/trang, tìm kiếm, chi tiết /phim/) | Đã gọi API thật + chạy đủ 4 hàm 20/11/2026: list 24 phim/trang mới, 20 phim/trang bộ, tìm kiếm 23 kết quả, chi tiết 2 server × 37 tập; link HLS suy từ /video/ sang /stream/.../master.m3u8 trả 200, playlist thật |
+| k20.js | sc.k-20.xyz (addon Stremio: catalog/meta/stream, CLB Phim Xưa) | Chép client K20 của HQH-TV (hqh.54). Đã chạy đủ 4 hàm với API thật 20/11/2026: danh sách 30 phim/trang, tìm kiếm có kết quả, chi tiết 1 tập Full, link stream giải ra MP4 (endpoint hx-mp4 trả 206 video/mp4). LƯU Ý: addon chặn theo User-Agent — curl mặc định ăn 404, phải gửi UA trình duyệt (host API của app đã set sẵn) |
