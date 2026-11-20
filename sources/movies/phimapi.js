@@ -1,4 +1,5 @@
-// Plugin PhimAPI (KKPhim) cho app lai HQH — v1.0.1
+// Plugin PhimAPI (KKPhim) cho app lai HQH — v1.0.2
+// v1.0.2 (20/11/2026): muc "Phim 18+" dua xuong CUOI danh sach muc (lenh thay).
 // v1.0.1 (20/11/2026): ten the loai bo tien to "The loai · " cho gon cot muc.
 // API: https://phimapi.com — da kiem chung truc tiep 19/11/2026:
 //   - Moi cap nhat:  GET /danh-sach/phim-moi-cap-nhat?page=
@@ -77,6 +78,13 @@ function getCategories() {
       cats.push({ id: "theloai:" + arr[i].slug, name: arr[i].name });
     }
   } catch (e) { log("phimapi the-loai loi: " + e); }
+  // His ruling (20/11): "Phim 18+" goes to the very bottom of the list.
+  for (var j = 0; j < cats.length; j++) {
+    if (cats[j].id === "theloai:phim-18") {
+      cats.push(cats.splice(j, 1)[0]);
+      break;
+    }
+  }
   return JSON.stringify(cats);
 }
 
