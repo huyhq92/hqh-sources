@@ -1,4 +1,8 @@
-// Plugin VSMOV cho app lai HQH — v1.0.0
+// Plugin VSMOV cho app lai HQH — v1.0.1 (21/11/2026: hoán đổi
+// poster/thumb — nền Ophim của VSMOV đặt NGƯỢC hai trường so với
+// PhimAPI: poster_url là ảnh NGANG (đo thật Tomb Raider:
+// 3123x1757), thumb_url là ảnh DỌC (2000x3000). Hợp đồng app:
+// poster = dọc, thumb = ngang.)
 // API: https://vsmov.com/api — da kiem chung truc tiep 20/11/2026:
 //   - Moi cap nhat:  GET /danh-sach/phim-moi-cap-nhat?page=   (24 phim/trang)
 //   - Phim bo / le:  GET /danh-sach/phim-bo|phim-le?page=     (20 phim/trang)
@@ -38,8 +42,8 @@ function vsCleanServer(s) {
 }
 
 function vsItem(m, base) {
-  var poster = vsImage(m.poster_url, base);
-  var thumb = vsImage(m.thumb_url, base);
+  var poster = vsImage(m.thumb_url, base);
+  var thumb = vsImage(m.poster_url, base);
   if (!poster) poster = thumb;
   if (!thumb) thumb = poster;
   return {
@@ -129,8 +133,8 @@ function getDetail(id) {
       id: m.slug || id,
       title: m.name || "",
       origin_name: m.origin_name || "",
-      poster: vsImage(m.poster_url, ""),
-      thumb: vsImage(m.thumb_url, ""),
+      poster: vsImage(m.thumb_url, ""),
+      thumb: vsImage(m.poster_url, ""),
       year: m.year || 0,
       quality: m.quality || "",
       lang: m.lang || "",
