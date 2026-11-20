@@ -1,4 +1,5 @@
-// Plugin PhimAPI (KKPhim) cho app lai HQH — v1.0.0
+// Plugin PhimAPI (KKPhim) cho app lai HQH — v1.0.1
+// v1.0.1 (20/11/2026): ten the loai bo tien to "The loai · " cho gon cot muc.
 // API: https://phimapi.com — da kiem chung truc tiep 19/11/2026:
 //   - Moi cap nhat:  GET /danh-sach/phim-moi-cap-nhat?page=
 //   - Danh sach v1:  GET /v1/api/danh-sach/{phim-bo|phim-le|hoat-hinh|tv-shows}?page=&limit=24
@@ -73,7 +74,7 @@ function getCategories() {
     var d = paJson(PA_BASE + "/v1/api/the-loai");
     var arr = (d && d.data && d.data.items) || [];
     for (var i = 0; i < arr.length; i++) {
-      cats.push({ id: "theloai:" + arr[i].slug, name: "Thể loại · " + arr[i].name });
+      cats.push({ id: "theloai:" + arr[i].slug, name: arr[i].name });
     }
   } catch (e) { log("phimapi the-loai loi: " + e); }
   return JSON.stringify(cats);
